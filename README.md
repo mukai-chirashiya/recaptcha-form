@@ -15,7 +15,7 @@ Googleの[reCAPTCHAコンソール](https://www.google.com/recaptcha/admin)に�
  * SETTINGS
  * @var $secret_key RECAPTCHAのシークレットキーを指定
  * @var $mailsender_url メール送信プログラムファイル(例:mail.php)のURLを指定
- * 　　　　　　　　　　　(相対パス可) mail.phpやformmail.cgiなど
+ * 　　　　　　　　　　　(相対パス不可) mail.phpやformmail.cgiなど
  */
 
 $secret_key = 'YOUR_SECRET_KEY';
