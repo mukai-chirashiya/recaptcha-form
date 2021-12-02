@@ -60,7 +60,7 @@ $mailsender_url = "./mail.php";
 ### ステップ３
 フォーム要素のaction属性を、exec_recaptcha.phpへのパスに変更する。
 ```html
-<form id="form" method="post" action="pathTo/exec_recaptcha.php">
+<form method="post" action="pathTo/exec_recaptcha.php">
 ```
 
 ### 備考

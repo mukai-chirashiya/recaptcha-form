@@ -10,7 +10,7 @@ $secret_key = 'YOUR_SECRET_KEY';
 $mailsender_url = 'https://www.exmaple.com/mail.php';
 
 
-/***********/
+/**********/
 #ini_set('display_errors', "On");
 //API Request URL
 $url = 'https://www.google.com/recaptcha/api/siteverify';
