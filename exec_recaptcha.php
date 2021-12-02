@@ -7,7 +7,7 @@
  */
 
 $secret_key = 'YOUR_SECRET_KEY';
-$mailsender_url = "https://www.exmaple.com/mail.php";
+$mailsender_url = 'https://www.exmaple.com/mail.php';
 
 
 /***********/
