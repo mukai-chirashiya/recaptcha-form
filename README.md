@@ -8,7 +8,6 @@ Googleの[reCAPTCHAコンソール](https://www.google.com/recaptcha/admin)に�
 
 ## ステップ1
 1. exec_recaptcha.phpを開き、シークレットキー(`$secret_key`)とフォーム送信プログラムのURL(`$mailsender_url`)を設定する。
-2. exec_recaptcha.phpをサーバーの任意の場所にアップロードする。`$mailsender_url`と同じディレクトリがおすすめ。
 
 ```php
 /**
@@ -21,10 +20,11 @@ Googleの[reCAPTCHAコンソール](https://www.google.com/recaptcha/admin)に�
 $secret_key = 'YOUR_SECRET_KEY';
 $mailsender_url = 'https://www.exmaple.com/mail.php';
 ```
+2. exec_recaptcha.phpをサーバーの任意の場所にアップロードする。`$mailsender_url`と同じディレクトリがおすすめ。
 
 ### ステップ２
 1. フォームのHTMLファイルに以下のコードを追加する。
-2. サイトキーと設定する。form要素のIDも必要に応じて変更する。
+2. コードの`YOUR_SITE_KEY`となっている部分２か所にサイトキーを設定する。
 
 ```html
 <!-- recaptcha本体読み込み　※クエリパラメータのrenderにサイトキーを指定 -->
@@ -32,7 +32,7 @@ $mailsender_url = 'https://www.exmaple.com/mail.php';
 <script>
   document.addEventListener('DOMContentLoaded', function () {
 
-    //サイトキーを設定
+    //※サイトキーを設定
     var siteKey = 'YOUR_SITE_KEY';
     //フォーム要素を取得
     var formElem = document.querySelector('form');
