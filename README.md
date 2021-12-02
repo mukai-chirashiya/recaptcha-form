@@ -19,7 +19,7 @@ Googleの[reCAPTCHAコンソール](https://www.google.com/recaptcha/admin)に�
  */
 
 $secret_key = 'YOUR_SECRET_KEY';
-$mailsender_url = "./mail.php";
+$mailsender_url = './mail.php';
 ```
 
 ### ステップ２
