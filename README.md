@@ -22,7 +22,7 @@ $mailsender_url = 'https://www.exmaple.com/mail.php';
 ```
 2. exec_recaptcha.phpをサーバーの任意の場所にアップロードする。`$mailsender_url`と同じディレクトリがおすすめ。
 
-### ステップ２
+## ステップ２
 1. フォームのHTMLファイルに以下のコードを追加する。
 2. コードの`YOUR_SITE_KEY`となっている部分２か所にサイトキーを設定する。
 
@@ -50,13 +50,13 @@ $mailsender_url = 'https://www.exmaple.com/mail.php';
 </script>
 ```
 
-### ステップ３
+## ステップ３
 フォーム要素のaction属性を、exec_recaptcha.phpへのパスに変更する。
 ```html
 <form method="post" action="pathTo/exec_recaptcha.php">
 ```
 
-### 備考
+## 備考
 ページのHTML上にform要素が複数あると、JavaScriptがform要素をうまく取得できないことがあります。
 その場合は以下の２か所にに書かれたscriptタグ内の`document.querySelector`メソッドの引数を変更してください。
 - ステップ2で設定した`siteKey`の下
