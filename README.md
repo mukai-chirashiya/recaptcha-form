@@ -37,22 +37,15 @@ $mailsender_url = 'https://www.exmaple.com/mail.php';
     //フォーム要素を取得
     var formElem = document.querySelector('form');
 
-    /* tokenを取得してformを送信 */
-    function executeRecaptcha(event) {
-      event.preventDefault();
-      grecaptcha.ready(function () {
-        grecaptcha.execute(siteKey).then(function (token) {
-          var inputTokenElem = document.createElement('input');
-          inputTokenElem.type = 'hidden';
-          inputTokenElem.name = 'g-recaptcha-response';
-          inputTokenElem.value = token;
-          formElem.appendChild(inputTokenElem);
-          formElem.removeEventListener('submit', executeRecaptcha);
-          formElem.submit();
-        });
+    grecaptcha.ready(function () {
+      grecaptcha.execute(siteKey).then(function (token) {
+        var inputTokenElem = document.createElement('input');
+        inputTokenElem.type = 'hidden';
+        inputTokenElem.name = 'g-recaptcha-response';
+        inputTokenElem.value = token;
+        formElem.appendChild(inputTokenElem);
       });
-    }
-    formElem.addEventListener('submit', executeRecaptcha);
+    });
   });
 </script>
 ```
