@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RECAPTCHA フォーム</title>
+</head>
+
+<body>
+
+  <!--
+    formタグ
+    ・JavaScript用にIDを設定する
+    ・action属性にexec_recaptcha.phpへのパスを指定する
+  -->
+  <form id="form" method="post" action="./exec_recaptcha.php">
+    <input type="text" value="テスト" name="テスト項目">
+    <button type="submit">送信</button>
+  </form>
+
+  <!-- recaptcha用JSここから -->
+  <!-- recaptcha本体読み込み　※クエリパラメータのrenderにサイトキーを指定 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      /**
+       * SETTINGS
+       * @var siteKey サイトキーを指定
+       * @var formId フォーム要素のIDを指定
+       */
+      var siteKey = 'YOUR_SITE_KEY';
+      var formId = 'form';
+
+      /* tokenを取得してformを送信 */
+      var formElem = document.getElementById(formId);
+      function executeRecaptcha(event) {
+        event.preventDefault();
+        grecaptcha.ready(function () {
+          grecaptcha.execute(siteKey).then(function (token) {
+            var inputTokenElem = document.createElement('input');
+            inputTokenElem.type = 'hidden';
+            inputTokenElem.name = 'g-recaptcha-response';
+            inputTokenElem.value = token;
+            formElem.appendChild(inputTokenElem);
+            formElem.removeEventListener('submit', executeRecaptcha);
+            formElem.submit();
+          });
+        });
+      }
+      formElem.addEventListener('submit', executeRecaptcha);
+    });
+
+  </script>
+  <!-- recaptcha用JSここまで　-->
+
+</body>
+
+</html>
