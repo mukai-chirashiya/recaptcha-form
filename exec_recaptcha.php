@@ -44,7 +44,7 @@ if (!$result->success || $result->score < 0.5) {
 }
 
 //フォームプログラムを実行
-unset($_POST['g-recaptcha-response']);
+// unset($_POST['g-recaptcha-response']);
 unset($_POST['action']);
 
 $context = array(
@@ -63,6 +63,12 @@ $html = file_get_contents($mailsender_url, false, stream_context_create($context
 echo ($html);
 
 ?>
+<style>
+  /** for formmail.cgi */
+  #formmail tr:last-of-type {
+    display: none;
+  }
+</style>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var formElem = document.querySelector('form');
