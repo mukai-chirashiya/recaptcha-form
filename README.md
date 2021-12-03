@@ -56,6 +56,9 @@ $mailsender_url = 'https://www.exmaple.com/mail.php';
 <form method="post" action="pathTo/exec_recaptcha.php">
 ```
 
+## ステップ４
+メール送信プログラムにformmmail.cgiを使っている場合、formmail.cgiに２か所必要な変更を加えてください。
+
 ## 備考
 ページのHTML上にform要素が複数あると、JavaScriptがform要素をうまく取得できないことがあります。
 その場合は以下の２か所にに書かれたscriptタグ内の`document.querySelector`メソッドの引数を変更してください。
