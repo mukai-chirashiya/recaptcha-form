@@ -29,6 +29,9 @@ my @errs;
 if(!$form->param("g-recaptcha-response")){
   exit(1);
 }
+if($form->param("_indispen")){
+	@indispen = split(/,/, $form->param("_indispen"));
+}
 
 if($form->param("_entry")){
 
@@ -40,7 +43,7 @@ if($form->param("_entry")){
 		if($name eq "_emailset"){
 			$from_mail = _Check_from_mail(@values);
 
-		}elsif($name ne "_indispen" and $name ne "_entry" and $name ne "g-recaptcha-response"){			#reCAPTCHA用に追記
+		}elsif($name ne "_indispen" and $name ne "_entry" and $name ne "g-recaptcha-response"){ #reCAPTCHA用に追記
 			my $values = join(", ",@values);
 			$values =~ s/NNN/\n/g;
 
@@ -80,7 +83,7 @@ if($form->param("_entry")){
 		my @values = $form->param($name);
 
 		if($name eq "_indispen"){			#入力必須項目
-			push(@indispen,@values);
+			#push(@indispen,@values);		##reCAPTCHA用：コメントアウトする
 
 		}elsif($name eq "_emailset"){		#送信元メールアドレス（入力者入力）
 			$from_mail = _Check_from_mail(@values);

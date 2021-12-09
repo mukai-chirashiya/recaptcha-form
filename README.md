@@ -56,8 +56,19 @@ $mailsender_url = 'https://www.exmaple.com/mail.php';
 <form method="post" action="pathTo/exec_recaptcha.php">
 ```
 
+## ステップ5
+メール送信プログラムにformmmail.cgiを使っている場合、フォーム要素の内の`name="_indispen"`となっている属性をカンマ区切りに書き換える。
+```html
+<!-- before 変更前 -->
+<input name="_indispen" value="名前">
+<input name="_indispen" value="電話番号">
+
+<!-- after 変更後 -->
+<input name="_indispen" value="名前,電話番号">
+```
+
 ## ステップ４
-メール送信プログラムにformmmail.cgiを使っている場合、formmail.cgiに２か所必要な変更を加えてください。
+メール送信プログラムにformmmail.cgiを使っている場合、formmail.cgiに３か所必要な変更を加えてください。
 
 ## 備考
 ページのHTML上にform要素が複数あると、JavaScriptがform要素をうまく取得できないことがあります。
