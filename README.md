@@ -57,7 +57,7 @@ $mailsender_url = 'https://www.exmaple.com/mail.php';
 ```
 
 ## ステップ5
-メール送信プログラムにformmmail.cgiを使っている場合、フォーム要素の内の`name="_indispen"`となっている属性をカンマ区切りに書き換える。
+メール送信プログラムにformmmail.cgiを使っている場合、フォーム要素の内の`name="_indispen"`となっているものをカンマ区切りに書き換える。
 ```html
 <!-- before 変更前 -->
 <input name="_indispen" value="名前">
