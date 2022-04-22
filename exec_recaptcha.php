@@ -38,9 +38,18 @@ $result = json_decode($api_response);
 //スコアを評価
 // var_dump($result);
 // die();
-if (!$result->success || $result->score < 0.5) {
-  header('Location: ' . $_SERVER['HTTP_REFERER']);
-  exit('Error');
+if (!$result->success || $result->score < 0.25) {
+  if (isset($result->{'error-codes'})) {
+    $errors = $result->{'error-codes'};
+    if (count($errors) == 1 && $errors[0] == 'timeout-or-duplicate') {
+      //OKこの場合はOK
+    } else {
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+  } else {
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit('Error');
+  }
 }
 
 //フォームプログラムを実行
